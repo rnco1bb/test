@@ -11,7 +11,7 @@
 
   <script>
     async function main() {
-      await liff.init({ liffId: "ここにLIFF IDを入れてね" });
+      await liff.init({ liffId: "2007317384-blm9NYYE" });
 
       if (!liff.isLoggedIn()) {
         liff.login();
@@ -21,7 +21,7 @@
       const profile = await liff.getProfile();
       const userId = profile.userId;
 
-      const baseUrl = "https://lin.ee/あなたのURL"; // LINE追加リンクに置き換えて！
+      const baseUrl = "https://lin.ee/OQp2f6E"; // あなたのLINE追加URL
       const referralLink = `${baseUrl}?ref=${userId}`;
 
       document.getElementById("output").textContent = referralLink;
