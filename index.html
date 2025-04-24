@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>紹介リンクを作成</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <h2>あなたの紹介リンク</h2>
+  <div id="output">読み込み中...</div>
+
+  <script>
+    async function main() {
+      await liff.init({ liffId: "ここにLIFF IDを入れてね" });
+
+      if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+      }
+
+      const profile = await liff.getProfile();
+      const userId = profile.userId;
+
+      const baseUrl = "https://lin.ee/あなたのURL"; // LINE追加リンクに置き換えて！
+      const referralLink = `${baseUrl}?ref=${userId}`;
+
+      document.getElementById("output").textContent = referralLink;
+    }
+
+    main();
+  </script>
+</body>
+</html>
